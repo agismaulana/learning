@@ -166,6 +166,20 @@ class User extends CI_Controller {
         redirect('user');
     }
 
+    public function user(){
+        $session = $this->session->userdata('nisn');
+        $profile = $this->db->get_where('user', ['nisn' => $session])->row_array();
+        $id = $profile['id'];
+        $data = [
+            'profile' => $profile,
+            'title' => 'User',
+            'isi' => 'user/profile',
+            'detail' => $this->User_M->detail($id),
+            'level' => $this->Level_M->show(),
+        ];
+        $this->load->view('template/wrapper.php',$data);
+    }
+
 }
 
 /* End of file User.php */

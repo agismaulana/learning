@@ -29,9 +29,9 @@
           <!-- Dropdown - User Information -->
           <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
             <i class="dropdown-item">
-              <?php if($profile['active']){ echo '<div class="badge badge-success">Online</div>'; }?>
+              <?php if($profile['active'] == 1){ echo '<div class="badge badge-success">Online</div>'; }?>
             </i>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item" href="<?= base_url('user/user');?>">
               <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
               Profile
             </a>
